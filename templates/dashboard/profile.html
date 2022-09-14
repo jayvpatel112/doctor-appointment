@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block title %}
+User Detail
+{% endblock title %}
+
+{% block body %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-11 col-md-11">
+            {% include 'messages.html'%}
+            <div class="card-deck">
+                <div class="card">
+                    <div class="col-lg-5 col-md-5">
+                        Profile_Picture : <img class="card-img-top" src="{{userdetail.Profile_Picture.url}}" alt="{{item.firstname}}" style="width:200px;min-height:200px; max-height:200px;">
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">First Name : {{userdetail.first_name}}</p>
+                        <p class="card-text">Last Name : {{userdetail.last_name}}</p>
+                        <p class="card-text">Email: {{userdetail.email}}</p>
+                        <p class="card-text">Username: {{userdetail.username}}</p>
+                        <p class="card-text">Address: {{userdetail.address}}</p>
+                        <p class="card-text">City: {{userdetail.city}}</p>
+                        <p class="card-text">State: {{userdetail.state}}</p>
+                        <p class="card-text">Pincode: {{userdetail.pincode}}</p>
+                        <p class="card-text">User Type:
+                        {% if userdetail.user_type == 1 %}
+                        <b>Patient</b>
+                        {% else %}
+                        <b>Doctor</b>
+                        {% endif %}
+                        </div>
+
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock body %}

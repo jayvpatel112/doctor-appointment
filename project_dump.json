@@ -1,0 +1,33 @@
+[
+{
+    "model": "sessions.session",
+    "pk": "yldcplwgmqfs246s8zs8d54pjm36fc55",
+    "fields": {
+        "session_data": ".eJxVjM0OwiAQhN-FsyFdQH48evcZCLCLVA0kpT0Z312a9KC3mflm5s182Nbit06Ln5FdGLDTbxZDelLdAT5CvTeeWl2XOfK9wg_a-a0hva5H9--ghF7G2mTUaookQBIMTcM5sg6Cy0plYR1JMErmMySps5miQLSSonLBkrbs8wXexje-:1oYPaz:y9REnamc7TL2M3NusKLgaXvhdm5v6E-kT-baqxq-ot8",
+        "expire_date": "2022-09-28T10:26:17.601Z"
+    }
+},
+{
+    "model": "dashboard.user",
+    "fields": {
+        "password": "pbkdf2_sha256$390000$1vIxix81yWfEVEVI594zUz$x/w8wzKEE9xd9UNLUORDhfq8hCkgWXW+z2jwivR5w20=",
+        "last_login": "2022-09-14T10:26:17.594Z",
+        "is_superuser": true,
+        "username": "jay",
+        "first_name": "",
+        "last_name": "",
+        "email": "",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2022-09-14T10:25:50.337Z",
+        "Profile_Picture": "",
+        "address": "",
+        "city": "",
+        "state": "",
+        "pincode": null,
+        "user_type": 1,
+        "groups": [],
+        "user_permissions": []
+    }
+}
+]

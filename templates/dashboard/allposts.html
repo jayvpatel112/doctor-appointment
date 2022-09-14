@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Posts
+{% endblock title %}
+
+{% block body %}
+{% comment %} <div class="d-flex flex-row bd-highlight mb-3">
+{% for post in posts %}
+
+    <div class="p-2 bd-highlight">
+    {{post.title}}
+    <img class="card-img-top" src="{{post.image.url}}" alt="{{post.image.url}}" style="width:200px;min-height:200px; max-height:200px;">
+    {{post.category}}
+    {{post.content}}
+</div>
+{% endfor %} {% endcomment %}
+{% if userdetail.user_type == 1 %}
+<b>Patient</b>
+{% else %}
+<b> Doctor </b>
+{% endif %}
+<div style="text-align:center; font-size:30px"> Mental Health: </div>
+<div class="row row-cols-1 row-cols-md-3 g-4 p-2 m-4">
+    {% for post in posts1 %}
+    <div class="col">
+      <div class="card">
+        <img class="card-img-top" src="{{post.image.url}}" alt="{{post.image.url}}" style="min-height:200px; max-height:200px;">
+        <div class="card-body">
+          <h5 class="card-title">{{post.title}}</h5>
+          <p class="card-text">
+            {{post.content|truncatewords:15}}
+          </p>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+</div>
+
+<div style="text-align:center; font-size:30px"> Heart Disease:</div>
+<div class="row row-cols-1 row-cols-md-3 g-4 p-2 m-4">
+    {% for post in posts2 %}
+    <div class="col">
+      <div class="card">
+        <img class="card-img-top" src="{{post.image.url}}" alt="{{post.image.url}}" style="min-height:200px; max-height:200px;">
+        <div class="card-body">
+          <h5 class="card-title">{{post.title}}</h5>
+          <p class="card-text">
+            {{post.content|truncatewords:15}}
+          </p>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+</div>
+
+<div style="text-align:center; font-size:30px">Covid19:</div>
+<div class="row row-cols-1 row-cols-md-3 g-4 p-2 m-4">
+    {% for post in posts3 %}
+    <div class="col">
+      <div class="card">
+        <img class="card-img-top" src="{{post.image.url}}" alt="{{post.image.url}}" style="min-height:200px; max-height:200px;">
+        <div class="card-body">
+          <h5 class="card-title">{{post.title}}</h5>
+          <p class="card-text">
+            {{post.content|truncatewords:15}}
+          </p>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+</div>
+
+<div style="text-align:center; font-size:30px">Immunization:</div>
+<div class="row row-cols-1 row-cols-md-3 g-4 p-2 m-4">
+    {% for post in posts4 %}
+    <div class="col">
+      <div class="card">
+        <img class="card-img-top" src="{{post.image.url}}" alt="{{post.image.url}}" style="min-height:200px; max-height:200px;">
+        <div class="card-body">
+          <h5 class="card-title">{{post.title}}</h5>
+          <p class="card-text">
+            {{post.content|truncatewords:15}}
+          </p>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+</div>
+{% comment %} {% else %}
+<b>Doctor</b>
+
+<div class="row row-cols-1 row-cols-md-3 g-4 p-2 m-4">
+    {% for post in posts %}
+    <div class="col">
+      <div class="card">
+        <img class="card-img-top" src="{{post.image.url}}" alt="{{post.image.url}}" style="min-height:200px; max-height:200px;">
+        <div class="card-body">
+          <h5 class="card-title">{{post.title}}</h5>
+          <p class="card-text">
+            {{post.content|truncatewords:15}}
+          </p>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+</div>
+{% endif %} {% endcomment %}
+{% endblock body %}

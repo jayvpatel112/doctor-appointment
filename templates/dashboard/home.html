@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Home
+{% endblock title %}
+
+{% block body %}
+
+{% if userdetail.user_type == 1 %}
+<b>Patient</b>
+
+
+
+<section class="vh-100" style="background-color: #508bfc;">
+  <div class="container py-3 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+        <div class="card shadow-2-strong" style="border-radius: 1rem;">
+          <div class="card-body p-5 text-center">
+            {% comment %} {{userdetail.Profile_Picture.url}} {% endcomment %}
+              {% include 'messages.html'%}
+              <h3 class="mb-5">Book Appointment</h3>
+              {% for d in doctors %}
+              <h5 class="mb-5"><b>Doctor Name:</b>        {{d.first_name}}</h5>
+              <h5 class="mb-5">
+              {% comment %} <div class="col-lg-5 col-md-5"> {% endcomment %}
+                <b>Profile_Picture : </b><img class="card-img-top" src="{{d.Profile_Picture.url}}" alt="{{item.firstname}}" style="width:100px;min-height:100px; max-height:100px;">
+              {% comment %} </div> {% endcomment %}
+            </h5>
+
+            <form action="{% url 'home'%}" enctype="multipart/form-data" method="POST">
+              {% csrf_token %}
+              <input type="hidden" name="doctorname" value={{d.first_name}}>
+              <button class="btn btn-primary btn-lg btn-block" type="submit" name="submit" value="bookappointment">Book Appointment</button>
+          </form>
+          {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+{% else %}
+<b>Doctor</b>
+<section class="vh-100" style="background-color: #508bfc;">
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+          <div class="card shadow-2-strong" style="border-radius: 1rem;">
+            <div class="card-body p-5 text-center">
+
+                {% include 'messages.html'%}
+              <h3 class="mb-5">Create Post</h3>
+              <form action="{% url 'appoinmentconfirm'%}" enctype="multipart/form-data" method="POST">
+                {% csrf_token %}
+                <div class="form-outline mb-4">
+                    <input type="text" name="title" class="form-control form-control-lg" placeholder="Blog Title" required>
+                </div>
+
+                <div class="form-outline mb-4">
+                    <input type="file" id="myFile" name="image" class="form-control form-control-lg" placeholder="Blog Image" required>
+                </div>
+
+                <div class="form-outline mb-4">
+                    <select name="category" id="category">
+                        <option value="1">Mental Health</option>
+                        <option value="2">Heart Disease</option>
+                        <option value="3">Covid19</option>
+                        <option value="4">Immunization</option>
+                    </select>
+                </div>
+
+                <div class="form-outline mb-4">
+                    <textarea rows="4" cols="50" name="content" class="form-control form-control-lg" placeholder="content" required>Enter text here...</textarea>
+                </div>
+
+                <button class="btn btn-primary btn-lg btn-block" type="submit" name="submit" value="createpost">Create Post</button>
+
+                <button class="btn btn-primary btn-lg btn-block" type="submit" name="submit" value="draft">Draft</button>
+            </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+{% endif %}
+
+{% endblock body %}

@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Final Confirm
+{% endblock title %}
+
+{% block body %}
+
+<h4 style="text-align:center"> <b>Doctor Name:</b> {{b.doctor_name}}</h4>
+<h4 style="text-align:center"> <b>Required Specification:</b> {{b.required_specification}}</h4>
+<h4 style="text-align:center"> <b>Appointment Date:</b> {{b.appointment_date}}</h4>
+<h4 style="text-align:center"> <b>Appointment start time</b> {{b.appointment_start_time}}</h4>
+<h4 style="text-align:center"> <b>Appointment end time</b> {{b.appointment_end_time}}</h4>
+
+<form style="text-align:center" action="{% url 'finalconfirm' id=id %}" enctype="multipart/form-data" method="POST">
+    {% csrf_token %}
+    <button class="btn btn-primary btn-lg btn-block" type="submit" name="submit" value="confirm">Confirm</button>
+</form>
+{% endblock body%}

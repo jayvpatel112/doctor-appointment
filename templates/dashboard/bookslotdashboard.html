@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}
+bookslotdashboard
+{% endblock title %}
+
+{% block body %}
+
+<table>
+
+    <tr>
+      <th style="padding: 15px;">Doctor Name</th>
+      <th style="padding: 15px;">Required Specification</th>
+      <th style="padding: 15px;">Appointment Date</th>
+      <th style="padding: 15px;">Appointment start Date</th>
+      <th style="padding: 15px;">Appointment end Date</th>
+    </tr>
+    {% for b in slots %}
+    <tr>
+      <td>{{b.doctor_name}}</td>
+      <td>{{b.required_specification}}</td>
+      <td>{{b.appointment_date}}</td>
+      <td>{{b.appointment_start_time}}</td>
+      <td>{{b.appointment_end_time}}</td>
+    </tr>
+    {% endfor %}
+  </table>
+
+{%endblock body%}
